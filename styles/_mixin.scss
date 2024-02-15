@@ -1,0 +1,103 @@
+@mixin parent_layout ($gap : $spacer * 5,$justify : center ,  $direction : row ) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    gap: $gap;
+    flex-direction: $direction ;
+    
+}
+
+@mixin parent_width () {
+    max-width: 1040px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    // @media screen and (max-width: 1120px) {
+    //     max-width: 900px;
+        
+    // }
+    
+    
+    
+}
+
+@mixin button_style () {
+    height: $spacer * 6;
+    // font-size: $spacer * 2;
+    // font-weight: bold;
+    border-radius: $spacer * 5; 
+   
+    padding: $spacer * 2;
+    // padding: $spacer * 3;
+    background-color: $primary_color;
+    border: 1px solid $primary_color;
+    color: black;
+}
+
+@mixin a_style ($color : $text_main_color , $hover_color : $primary_color ) {
+    color :$color;
+    text-decoration: none;
+    &:hover {
+        color: $hover_color;
+        transition: 0.5s;
+    }
+  
+}
+
+@mixin title-layout () {
+    display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacer * 3;
+  padding-bottom: $spacer * 10;
+
+  @media screen and (max-width: 550px) {
+  
+      > h2 {
+        font-size: 20px;
+        &::after{
+          bottom: -6px;
+        }
+        &::before{
+          top: 33px;
+        }
+      }
+      >p {
+        font-size:14px;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 550px){
+           padding-left: 10px;
+           padding-right: 10px;
+    }
+}
+
+
+@mixin title-skill {
+  background-color: #212121;
+  color:white;
+  height: 100%;
+  width: 24%;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+@mixin mobile-skill ($animation-name:html) {
+  background-color:$primary_color;
+  color: orangered;
+  height: 100%;
+  width: 24%;
+  padding: 10px 20px;
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: -1;
+  animation-name: $animation-name;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
